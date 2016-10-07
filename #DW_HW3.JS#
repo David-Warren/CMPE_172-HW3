@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+
+//Owner: David Warren
+//Date: October 6, 2016
+//Class: CMPE 172
+//Homework 3
+
+var monday = [
+    {
+	'name' : 'Write a tutorial',
+	'duration' : 180
+    },
+    
+    {
+	'name' : 'Some web development',
+	'duration' : 120
+    }
+];
+
+var tuesday = [
+    {
+	'name' : 'Keep writing that tutorial',
+	'duration' : 240
+    },
+    {
+	'name' : 'Some more web development',
+	'duration' : 180
+    },
+    {
+	'name' : 'A whole lot of nothing', 
+	'duration' : 240
+    }
+];
+
+
+
+var tasks = [monday, tuesday];
+
+var result = tasks.reduce(function (accumulator, current) {
+    return accumulator.concat(current);
+    }).map(function (task) {
+	return (task.duration / 60);  //Converting duration in minutes to hours
+	}).filter(function (duration) {
+	    return duration >1;  //Filtering out everything that took one hour or more
+	    }).map(function (duration) {
+		return duration * 20;  //Multiplying hours by hourly-rate $20/hr 
+		}).reduce(function (accumulator, current) {
+		    return [(+accumulator) + (+current)];
+		    }).map(function(dollar_amount) {
+			return '$' + dollar_amount.toFixed(2);
+			}).reduce(function (formatted_dollar_amount) {
+			    return formatted_dollar_amount;  
+			    });
+
+
+console.log("You've made over " + result + " for working!");
