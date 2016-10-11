@@ -1,0 +1,51 @@
+#!/usr/bin/env nodee
+
+//Owner: David Warren
+//Date: October 6, 2016
+//Class: CMPE 172
+//Homework 3
+
+var uu = require('underscore'); 
+
+var monday = [
+    {
+	'name' : 'Write a tutorial',
+	'duration' : 180
+    },
+    
+    {
+	'name' : 'Some web development',
+	'duration' : 120
+    }
+];
+
+var tuesday = [
+    {
+	'name' : 'Keep writing that tutorial',
+	'duration' : 240
+    },
+    {
+	'name' : 'Some more web development',
+	'duration' : 180
+    },
+    {
+	'name' : 'A whole lot of nothing', 
+	'duration' : 240
+    }
+];
+
+
+
+var tasks = [monday, tuesday];
+
+var result = uu.reduce(tasks, function (accumulator, current){return accumulator.concat(current)}) {
+ 	uu.map(tasks, function (task){ return duration/60 });
+	uu.filter(tasks, function (duration) { return duration > 1 });
+	    uu.map(tasks, function (duration) {return duration * 20 }); 
+		uu.reduce(task, function (accumulator, current) {return [(+accumulator) + (+current)] });
+		    uu.map(tasks, function(dollar_amount) {return '$' + dollar_amount.toFixed(2)});
+			uu.reduce(tasks, function (formatted_dollar_amount) {return formatted_dollar_amount});
+			
+
+
+console.log("You've made over " + result + " for working");

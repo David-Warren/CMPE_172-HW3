@@ -1,18 +1,7 @@
-#!/usr/bin/env node
 
-//Owner: David Warren
-//Date: October 6, 2016
-//Class: CMPE 172
-//Homework 3
-
-var monday = [
-    {
-	'name' : 'Write a tutorial',
-	'duration' : 180
-    },
     
     {
-	'name' : 'Some web development',
+	'Name' : 'Some web development',
 	'duration' : 120
     }
 ];
@@ -53,4 +42,4 @@ var result = tasks.reduce(function (accumulator, current) {
 			    });
 
 
-console.log("You've made over " + result + " for working!");
+console.log("You've made over " + result + " for working");

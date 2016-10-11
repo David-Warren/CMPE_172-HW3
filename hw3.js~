@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+
+var uu = require('underscore');
+
+var monday = [
+        {
+            'name'     : 'Write a tutorial',
+            'duration' : 180
+        },
+        {
+            'name'     : 'Some web development',
+            'duration' : 120
+        }
+    ];
+ 
+var tuesday = [
+        {
+            'name'     : 'Keep writing that tutorial',
+            'duration' : 240
+        },
+        {
+            'name'     : 'Some more web development',
+            'duration' : 180
+        },
+        {
+            'name'     : 'A whole lot of nothing',
+            'duration'  : 240
+        }
+    ];
+
+var tasks = [monday, tuesday];
+
+var result = uu.reduce(tasks, function(a, b) {return a.concat(b);});
+
+
+var duration = uu.map(result, function(task) {return task.duration / 60;});
+
+
+var out = uu.filter(duration, function(duration) {return duration >= 1;});
+
+
+var pay = uu.map(out, function (duration) {return duration * 20;});
+
+
+var combine = uu.reduce(pay, function (accumulator, current) {return [(+accumulator) + (+current)]});
+
+
+var convert = uu.map(combine, function(dollar_amount) {return ('$' + dollar_amount.toFixed(2))});
+
+
+var pull = uu.reduce(convert, function (formatted_dollar_amount) {return formatted_dollar_amount});
+console.log(pull);

@@ -56,29 +56,13 @@ var result = uu.reduce(tasks, function (accumulator, current){return accumulator
 
 
 //var tasks = [monday, tuesday];
-/*
-var result = _.chain(tasks)
-uu.reduce(tasks, function (accumulator, current) {return accumulator.concat(current)})
-    .map(tasks, function (task){ return tasks.duration/60 })
-        .filter(tasks, function (duration) { return duration > 1; })
-            .map(tasks, function (duration) {return duration * 20; })
-              .reduce(tasks, function (accumulator, current) {return [(+accumulator) + (+current)]})
-                .map(tasks, function(dollar_amount) {return '$' + dollar_amount.toFixed(2)})                                         .reduce(tasks, function (formatted_dollar_amount) {return formatted_dollar_amount})
-                          .value();
-*/
-/*
-var out = uu.chain(tasks) 
-      .reduce(tasks, function(total, current) {return total.concat(duration)
-*/
 
-var sum = function(tasks) { 
-    return uu.reduce(tasks, function(duration) {return duration;});
-};
-var time = function(sum) {
-    return uu.map(tasks, function(sum) {return sum / 60});
-  }; 
+var result = uu.reduce(tasks, function (accumulator, current) {return accumulator.concat(current);});
+    uu.map(tasks, function (task){ return tasks.duration/60; });
+        uu.filter(tasks, function (duration) { return duration > 1; });
+            uu.map(tasks, function (duration) {return duration * 20; });
+                uu.reduce(tasks, function (accumulator, current) {return [(+accumulator) + (+current)]});
+                uu.map(tasks, function(dollar_amount) {return ('$' + dollar_amount.toFixed(2))});
+                      uu.reduce(tasks, function (formatted_dollar_amount) {return formatted_dollar_amount});
+    console.log("You've made over " + result + " for working");
 
-console.log(sum);
-
-
- // console.log("You've made over " + result + " for working");
